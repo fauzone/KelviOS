@@ -78,6 +78,19 @@ KelviOS is **alpha** software. It is built and used by its author first; it has 
 - **Remaining Phase 1 items:** LUKS pool encryption, the Btrfs mechanism path, and disk power actuation are partial or pending.
 - **No project license yet** (see below), no public issue tracker process, and no support commitment of any kind: expect breaking changes between commits.
 
+## Roadmap
+
+Where KelviOS is heading next. These are design-committed directions, not release promises — ordering follows the project's gates, not a calendar.
+
+- **A real desktop, in your browser.** A windowed desktop environment — icons and Trash on the desktop, a dock, a Start menu, snapping windows, dialogs as windows — that wraps the existing KelviOS surfaces instead of replacing them. Desktop state is stored per user on the box and follows you between devices. *(In development.)*
+- **One shell, every screen.** The same desktop adapts its presentation automatically: pointer type, touch, and screen size decide whether you get the full desktop, a full-screen card stack on phones, or a 10-foot launcher on TV — with a manual Auto / TV / Desktop / Mobile switch remembered per device. There is no separate TV or mobile product. *(In development; the TV presentation lands with the TV hardware gate.)*
+- **HDMI mode.** Plug the box into a monitor or TV and it presents its own desktop full-screen — the same applications, data, and permissions, rendered locally with no network hop, and fully functional while the internet is down. The local session starts from a limited profile; a PIN elevates it. *(Planned.)*
+- **A TV home that leads with media.** In TV presentation, the home screen is a 10-foot launcher — Media, Photos, the CCTV wall, and one tile into the full desktop. *(Planned, together with the CCTV pattern.)*
+- **Mobile as companion first.** On phones, the default home is a console: agent approvals front and center, storage health, notifications, photo-backup status, and quick actions that complete on the spot. The full OS experience stays one tap away. *(Planned.)*
+- **Your phone is the TV remote.** A remote app you open and close like any other app — focus-based touchpad navigation, media transport controls, the phone as a keyboard, and push-to-talk voice commands to the agent, scoped to safe actions only. *(Planned.)*
+- **Every screen at once.** One account can be signed in on the TV, a laptop, and a phone simultaneously. Accounts belong to people, not devices; each person keeps their own desktop, permissions, and quotas. *(In development, with the desktop.)*
+- **First-class macOS integration.** The box appears in Finder automatically (Bonjour discovery), serves as a Time Machine target with Mac-tuned SMB — no `._` litter, Finder metadata intact — and pairs with iPhone photo backup. Built for the freelancer and small-studio segment, most of whom live on Macs. *(Planned.)*
+
 ## License
 
 **To be decided.** KelviOS's own license has not been chosen yet; until a `LICENSE` file appears in this repository, the project code is all rights reserved.
