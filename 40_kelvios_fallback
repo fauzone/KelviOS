@@ -1,0 +1,63 @@
+#!/bin/sh
+# KelviOS A/B fallback logic - creates a default menuentry with fallback check
+# This script runs at update-grub time (build time) and detects kernel version
+
+# Find the latest kernel version in /boot
+KERNEL_VERSION=$(ls -1 /boot/vmlinuz-* 2>/dev/null | head -1 | sed 's|.*/vmlinuz-||')
+if [ -z "${KERNEL_VERSION}" ]; then
+    # Fallback to a common pattern if detection fails
+    KERNEL_VERSION="6.12.107+deb13-amd64"
+fi
+
+cat << EOF
+menuentry 'KelviOS (A/B fallback)' --class gnu-linux --class gnu --class os --id kelvios-fallback {
+    # Load grubenv to check boot status
+    if [ -s \$prefix/grubenv ]; then
+        load_env
+    fi
+    
+    # Check if previous boot was not marked good
+    if [ "\${kelvios_boot_ok}" = "0" ]; then
+        echo "Previous boot not marked good (kelvios_boot_ok=0), attempting fallback..."
+        
+        # Determine fallback slot
+        if [ "\${kelvios_active}" = "a" ]; then
+            set fallback_slot="b"
+            set fallback_label="kelvios-root-b"
+        else
+            set fallback_slot="a"
+            set fallback_label="kelvios-root-a"
+        fi
+        
+        echo "Falling back to slot \${fallback_slot}..."
+        
+        # Update grubenv for next boot
+        save_env kelvios_active \${fallback_slot}
+        save_env kelvios_boot_ok 0
+        
+        # Boot the fallback slot
+        insmod part_gpt
+        insmod ext2
+        search --no-floppy --fs-label --set=root \${fallback_label}
+        echo "Loading Linux from fallback slot \${fallback_slot}..."
+        linux /boot/vmlinuz-${KERNEL_VERSION} root=LABEL=\${fallback_label} ro console=ttyS0,115200n8 console=tty0
+        initrd /boot/initrd.img-${KERNEL_VERSION}
+        boot
+    else
+        # Previous boot was good, boot the active slot
+        if [ "\${kelvios_active}" = "a" ]; then
+            set boot_label="kelvios-root-a"
+        else
+            set boot_label="kelvios-root-b"
+        fi
+        
+        insmod part_gpt
+        insmod ext2
+        search --no-floppy --fs-label --set=root \${boot_label}
+        echo "Loading Linux from slot \${kelvios_active}..."
+        linux /boot/vmlinuz-${KERNEL_VERSION} root=LABEL=\${boot_label} ro console=ttyS0,115200n8 console=tty0
+        initrd /boot/initrd.img-${KERNEL_VERSION}
+        boot
+    fi
+}
+EOF

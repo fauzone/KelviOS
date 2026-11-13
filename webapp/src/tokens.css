@@ -1,0 +1,76 @@
+/*
+ * KelviOS design tokens.
+ *
+ * Binding rules from the UI design brief:
+ *  - body line-height 1.55–1.6, headings ~1.25, big KPI numbers ~1.15
+ *  - letter-spacing on uppercase labels
+ *  - generous whitespace on a fixed spacing scale
+ *  - hierarchy from typography & whitespace, not boxes and borders
+ *  - color is reserved for state (ok / warning / danger) and tier identity
+ *  - tabular figures for all numbers in tables and metrics
+ */
+:root {
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --lh-body: 1.58;
+  --lh-heading: 1.25;
+  --lh-number: 1.15;
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.9375rem;
+  --text-lg: 1.0625rem;
+  --text-xl: 1.375rem;
+  --text-kpi: 2.125rem;
+  --tracking-label: 0.08em;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Neutral surfaces (calm, ZimaOS-like; no gradients, no glassmorphism) */
+  --bg: #f6f6f4;
+  --surface: #ffffff;
+  --surface-subtle: #efefec;
+  --border: #e3e2dc;
+  --border-strong: #d2d1c9;
+
+  /* Text */
+  --text: #1d1f23;
+  --text-secondary: #5b5f66;
+  --text-faint: #8b8f97;
+
+  /* Interactive accent (navigation & controls only) */
+  --accent: #2f62c4;
+  --accent-subtle: #e9effc;
+
+  /* State colors — reserved for status, never decoration */
+  --ok: #2e7d4f;
+  --ok-subtle: #e4f1e8;
+  --warning: #a86a08;
+  --warning-subtle: #faf0da;
+  --danger: #bf3b30;
+  --danger-subtle: #fae9e7;
+
+  /* Tier identity — consistent on every surface */
+  --tier-hot: #c8502e;
+  --tier-warm: #bb8418;
+  --tier-cold: #4a6fa5;
+
+  /* Shape & chrome */
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --shadow-card: 0 1px 2px rgba(24, 24, 32, 0.05);
+  --sidebar-width: 248px;
+  --topbar-height: 60px;
+  --mobile-nav-height: 62px;
+  --tap-target: 48px;
+}

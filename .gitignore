@@ -1,0 +1,13 @@
+/bin/
+*.db
+*.log
+.DS_Store
+/vendor/
+webapp/node_modules/
+webapp/dist/
+/web/dist/assets/
+image/output/
+image/work/
+
+# OTA runtime state (switcher writes active/pending.slot at startup; never commit)
+/internal/httpserver/ota/
