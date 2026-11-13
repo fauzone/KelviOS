@@ -91,6 +91,20 @@ Where KelviOS is heading next. These are design-committed directions, not releas
 - **Every screen at once.** One account can be signed in on the TV, a laptop, and a phone simultaneously. Accounts belong to people, not devices; each person keeps their own desktop, permissions, and quotas. *(In development, with the desktop.)*
 - **First-class macOS integration.** The box appears in Finder automatically (Bonjour discovery), serves as a Time Machine target with Mac-tuned SMB — no `._` litter, Finder metadata intact — and pairs with iPhone photo backup. Built for the freelancer and small-studio segment, most of whom live on Macs. *(Planned.)*
 
+## Credits
+
+KelviOS stands on mature open-source work. The full legal inventory — every component, version, and license — lives in [`docs/LICENSE.md`](docs/LICENSE.md); this is the short, human version.
+
+- **Debian** — the base system and every OS package in the image come from Debian (trixie), distributed as-is from the official mirrors.
+- **The Linux kernel, systemd, and GRUB** — the boot and init foundation, as packaged by Debian.
+- **Go** and its ecosystem — including the **moby** client libraries behind the container driver and **modernc.org/sqlite**, which brings **SQLite** into the single static binary.
+- **React** and **React DOM** — the embedded web UI.
+- **Restic** — the encrypted, deduplicated backup engine KelviOS drives on-device.
+- **MergerFS, SnapRAID, and Btrfs** — the storage mechanisms behind the pool drivers, installed on-device.
+- **The Model Context Protocol** — the open protocol KelviOS's agent surface speaks.
+
+Thank you to the maintainers and communities behind each of them.
+
 ## License
 
 **To be decided.** KelviOS's own license has not been chosen yet; until a `LICENSE` file appears in this repository, the project code is all rights reserved.
