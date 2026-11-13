@@ -2,7 +2,7 @@
 
 # KelviOS
 
-**An agent-native personal NAS OS that keeps every byte at the right temperature.**
+**An agent-native personal cloud OS — NAS storage and a cloud desktop in one box, keeping every precious file at the right temperature.**
 
 KelviOS pools drives of different sizes and adds the one idea mainstream NAS systems are missing: **Hot–Warm–Cold storage tiering driven by how often your data is actually accessed**. Hot data stays instantly available. Cold data sleeps on cheap drives that are *powered off completely* — no spinning, no wear, no wasted electricity — and wake only when there is real work.
 
