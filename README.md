@@ -24,6 +24,10 @@ On top of that, KelviOS is **agent-native**: it is API-first, ships an MCP serve
 
 ![Hot, Warm, and Cold tiers](docs/images/tiers.png)
 
+![KelviOS desktop mode](docs/images/desktop-mode.png)
+
+*Desktop mode: a windowed desktop in the browser — icons and Trash on the desktop, a dock, a Start menu, snapping windows, dialogs as windows — wrapping the existing KelviOS surfaces instead of replacing them. Design preview; in development (see [Roadmap](#roadmap)).*
+
 ## Architecture
 
 - **Core:** one static Go binary (`kelvios-core`, CGO disabled). No PHP, no Python, no separate database server, no external runtime.
